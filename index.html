@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ASAS GANJIL KIMIA KELAS XI</title>
+<style>
+:root{--bg:#f4f6ff;--c:#fff;--t:#26294a;--m:#6b6f93;--p:#6c5ce7;--p2:#a29bfe;--b:#dfe6ff;--ok:#2d9d78;--bad:#e0556b;--w:#f5a623}
+@media(prefers-color-scheme:dark){:root{--bg:#171932;--c:#21244a;--t:#eceeff;--m:#a3a8d6;--b:#363a6b}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,Segoe UI,Roboto,sans-serif;background:linear-gradient(135deg,var(--bg),#e9e4ff);color:var(--t);min-height:100vh}
+@media(prefers-color-scheme:dark){body{background:var(--bg)}}
+.card{background:var(--c);border:1px solid var(--b);border-radius:18px;padding:22px;box-shadow:0 6px 24px rgba(108,92,231,.1)}
+.wrap{max-width:1100px;margin:0 auto;padding:16px}.center{max-width:520px;margin:6vh auto}
+h1{font-size:1.5rem;margin:.2em 0}h2{font-size:1.15rem;margin:.2em 0}.m{color:var(--m);font-size:.9rem}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input,select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--b);border-radius:10px;font:inherit;background:var(--c);color:var(--t)}
+input:focus,textarea:focus{outline:2px solid var(--p2)}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:11px 18px;background:var(--p);color:#fff;font-weight:600}
+button.s{background:var(--b);color:var(--t)}button.d{background:var(--bad)}button:disabled{opacity:.5}
+.badge{display:inline-block;background:#ece9ff;color:#5a4bd1;border-radius:99px;padding:3px 12px;font-size:.8rem;font-weight:600}
+.top{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.timer{font:700 1.3rem ui-monospace,monospace;background:#ece9ff;color:#4a3cc4;padding:6px 14px;border-radius:12px}.timer.low{background:#ffe3e8;color:var(--bad)}
+.bar{height:10px;background:var(--b);border-radius:9px;overflow:hidden;margin:10px 0}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--p),var(--p2));transition:width .3s}
+.grid{display:grid;grid-template-columns:300px 1fr;gap:16px;margin-top:12px}@media(max-width:800px){.grid{grid-template-columns:1fr}}
+.nav{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}
+.nav button{padding:8px 0;background:var(--c);color:var(--t);border:1.5px solid var(--b);font-size:.85rem}
+.nav button.a{background:#d9f5ea;border-color:var(--ok);color:#14694d}.nav button.c{outline:3px solid var(--p2)}
+.lg{font-size:.8rem;color:var(--m);margin-top:8px}.lg b{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:middle;margin:0 4px 0 8px;border:1.5px solid var(--b)}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:11px 14px;border:1.5px solid var(--b);border-radius:12px;margin:8px 0;cursor:pointer}
+.opt.sel{border-color:var(--p);background:#efecff}@media(prefers-color-scheme:dark){.opt.sel{background:#2d2f63}}
+.opt input{width:auto;margin-top:5px}.q p{margin:.4em 0}
+sub,sup{font-size:.75em;line-height:0}.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 3px}
+.fr span:first-child{border-bottom:1.5px solid currentColor;padding:0 3px}
+.pre{display:inline-flex;flex-direction:column;font-size:.7em;line-height:1.05;vertical-align:middle;margin-right:1px}.pre i{font-style:normal;min-height:1em}
+table.tb{border-collapse:collapse;margin:10px 0}.tb th,.tb td{border:1px solid var(--m);padding:5px 14px;text-align:center}.tb th{background:#ece9ff;color:#2d2870}
+ol.st{padding-left:1.6em;margin:.3em 0}ol.st{list-style:none;counter-reset:s}ol.st li{counter-increment:s}ol.st li:before{content:"(" counter(s) ") "}
+ol.sb{list-style:lower-alpha;padding-left:1.6em}
+textarea{min-height:200px;resize:vertical;font-family:ui-monospace,Consolas,monospace}
+.row{display:flex;gap:10px;justify-content:space-between;margin-top:16px;flex-wrap:wrap}
+.ov{position:fixed;inset:0;background:rgba(20,18,60,.6);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.ov.on{display:flex}.ov .card{max-width:460px;width:100%}.ban{position:fixed;left:0;right:0;top:0;background:var(--w);color:#3a2800;padding:8px;text-align:center;font-weight:600;display:none;z-index:60}
+.err{color:var(--bad);font-weight:600;margin-top:10px}.note{background:#fff7e0;border:1px solid #f3dd9a;color:#5c4500;border-radius:12px;padding:10px 14px;font-size:.85rem;margin-top:14px}
+@media(prefers-color-scheme:dark){.note{background:#3a3318;color:#f0dc9a;border-color:#6b5d20}}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.tabs button{background:var(--c);color:var(--t);border:1.5px solid var(--b)}.tabs button.on{background:var(--p);color:#fff}
+.tw{overflow-x:auto}.tw table{border-collapse:collapse;width:100%;font-size:.88rem}.tw th,.tw td{border-bottom:1px solid var(--b);padding:7px 9px;text-align:left;white-space:nowrap}.tw th{background:#ece9ff;color:#2d2870}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}@media(max-width:700px){.g2{grid-template-columns:1fr}}.hide{display:none!important}
+.gq{border:1px solid var(--b);border-radius:12px;padding:12px;margin:10px 0}.gq .ans{white-space:pre-wrap;background:var(--bg);border-radius:8px;padding:10px;font-family:ui-monospace,monospace;font-size:.9rem;margin:8px 0}
+.sc{width:90px!important}
+</style></head><body>
+<div class="ban" id="ban"></div>
+
+<!-- HALAMAN IDENTITAS -->
+<div id="v-id" class="center"><div class="card">
+  <span class="badge">Asesmen Sumatif Akhir Semester</span>
+  <h1>ASAS GANJIL KIMIA KELAS XI</h1>
+  <div class="m">Mata Pelajaran Kimia · SMA Kelas XI · Semester Ganjil · Tahun Pelajaran 2026/2027<br>35 soal: 30 pilihan ganda + 5 essay</div>
+  <label for="nama">Nama lengkap</label><input id="nama" autocomplete="off">
+  <div class="g2"><div><label for="kelas">Kelas</label><input id="kelas" placeholder="contoh: XI IPA 1" autocomplete="off"></div>
+  <div><label for="absen">Nomor absen</label><input id="absen" type="number" min="1" autocomplete="off"></div></div>
+  <label for="kode">Kode akses ujian</label><input id="kode" type="password" autocomplete="off">
+  <div class="err" id="err"></div>
+  <button id="go" style="width:100%;margin-top:16px">MULAI UJIAN</button>
+  <div class="note"><b>Aturan ujian:</b> ujian berjalan dalam layar penuh. Berpindah tab/jendela, keluar dari layar penuh, atau menekan kombinasi tombol tertentu dicatat sebagai pelanggaran. Pelanggaran ke-<span class="maxv">5</span> membuat ujian terkirim otomatis.<br><b>Keterbatasan:</b> browser tidak dapat mendeteksi seluruh aktivitas berbagi layar, penggunaan aplikasi/perangkat lain. Pengawasan langsung oleh guru tetap diperlukan.</div>
+</div></div>
+
+<!-- HALAMAN UJIAN -->
+<div id="v-ex" class="wrap hide">
+  <div class="card top"><div><span class="badge">ASAS Ganjil Kimia XI</span><h2 id="who"></h2></div>
+  <div><span class="m">Sisa waktu</span> <span class="timer" id="tm">--:--</span></div></div>
+  <div class="bar"><i id="pb"></i></div><div class="m" id="pt"></div>
+  <div class="grid">
+    <div class="card"><b>Navigasi soal</b><div class="nav" id="nav" style="margin-top:8px"></div>
+      <div class="lg"><b style="background:#d9f5ea;border-color:#2d9d78"></b>Terjawab<b></b>Belum</div>
+      <button id="fin" class="d" style="width:100%;margin-top:14px">SELESAI &amp; KIRIM</button></div>
+    <div class="card"><div id="qh" class="m"></div><div id="q" class="q"></div>
+      <div class="row"><button class="s" id="pv">← Sebelumnya</button><button id="nx">Berikutnya →</button></div></div>
+  </div>
+</div>
+
+<!-- HALAMAN AKHIR -->
+<div id="v-end" class="center hide"><div class="card" style="text-align:center">
+  <div style="font-size:3rem">✅</div><h1>UJIAN BERHASIL DIKUMPULKAN</h1>
+  <p><b id="en"></b><br><span class="m">Waktu pengumpulan: <span id="ew"></span></span></p>
+  <p>Jawaban essay akan diperiksa secara manual oleh guru. Hasil dan nilai akan disampaikan oleh guru. Anda boleh menutup halaman ini.</p>
+</div></div>
+
+<!-- PANEL GURU -->
+<div id="v-g" class="wrap hide">
+  <div id="g-login" class="center"><div class="card"><h1>Panel Guru</h1><label for="gpw">Password guru</label><input id="gpw" type="password">
+    <div class="err" id="gerr"></div><button id="glogin" style="width:100%;margin-top:14px">Masuk</button></div></div>
+  <div id="g-main" class="hide">
+    <div class="card top"><h1>Panel Guru · ASAS Kimia XI</h1><div><button class="s" id="grefresh">Muat ulang data</button> <button class="s" id="gout">Keluar</button></div></div>
+    <div id="gwarn" class="note hide">Password guru masih bawaan. Segera ganti di tab Pengaturan.</div>
+    <div class="tabs" id="gtabs"></div><div id="gbody"></div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="ov" id="ov"><div class="card"><h2 id="ot"></h2><p id="ob"></p><div class="row" id="oa"></div></div></div>
+
+<script>
+/* ============ KONFIGURASI ============ */
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwCw4Lm65uozIVJ3JhR8GPrOSY2Oj7JRp4RgZpfdemzEs8oXUNTrHJkzldkEM618d8FEA/exec"; // <- tempel URL Web App Google Apps Script (berakhiran /exec)
+/* ====================================== */
+const QD = {"pg": [{"n": 1, "stem": "<p>Konfigurasi elektron yang benar untuk atom K (nomor atom =19) adalah….</p>", "opts": ["1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 3d<sup>1</sup>", "1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>1</sup>", "1s<sup>2</sup> 2s<sup>2</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup> 4p<sup>4</sup>", "1s<sup>2</sup> 2s<sup>2</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>1</sup> 4p<sup>5</sup>", "1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup>"]}, {"n": 2, "stem": "<p>Harga ke-empat bilangan kuantum dari elektron terluar atom S yang yang bernomor atom 16 adalah….</p>", "opts": ["n=2 ,l=0, m=0, s=-1/2", "n=3 ,l=1, m=-1, s=-1/2", "n=2 ,l=0, m=-1, s=+1/2", "n=2 ,l=1, m=+1, s=-1/2", "n=2 ,l=0, m=+1, s=+1/2"]}, {"n": 3, "stem": "<p>Suatu molekul mempunyai 3 pasang elektron bebas dan 2 pasang elektron ikatan . bentuk geometri molekul tersebut adalah…..</p>", "opts": ["Linier", "Bengkok", "Trigonal planar", "Trigonal piramida", "Tetrahedral"]}, {"n": 4, "stem": "<p>Suatu molekul memiliki hibridisasi sp<sup>3</sup>. Bentuk geometri molekul tersebut adalah ….</p>", "opts": ["Linier", "Trigonal planar", "Tetrahedral", "Trigonal bipiramida", "Tetrahedral"]}, {"n": 5, "stem": "<p>Diantara unsur-unsur berikut : <span class=\"pre\"><i></i><i>3</i></span>A, <span class=\"pre\"><i></i><i>11</i></span>B<span class=\"pre\"><i></i><i>33</i></span>D, <span class=\"pre\"><i></i><i>53</i></span>E yang terletak pada golongan yang sama pada system periodik adalah….</p>", "opts": ["A dan B", "B dan C", "C dan D", "D dan E", "A dan E"]}, {"n": 6, "stem": "<p>Besarnya perubahan entalpi reaksi untuk reaksi :</p><p>CH<sub>4</sub>+ 2O<sub>2</sub>(g) ↔CO<sub>2</sub> + 2H<sub>2</sub>O</p><p>Jika diketahui ∆H°f CH<sub>4</sub> =1.660 kJ/mol , ∆H°f O<sub>2</sub>=0 kJ/mol , ∆H°f= CO<sub>2</sub>=394 kJ/mol , ∆H°f H<sub>2</sub>O=-240 kJ/mol adalah …kJ/mol</p>", "opts": ["-786", "+786", "-1.746", "+1746", "-2.534"]}, {"n": 7, "stem": "<p>Besarnya perubahan entalpi untuk reaksi berikut:</p><p>H<sub>2</sub>C=CH<sub>2</sub>(g) + H<sub>2</sub> ↔CH<sub>3</sub>CH<sub>3</sub>(g)</p><p>Jika diketahui energi ikatan C=C =833 kJ/mol , energi ikatan C- C=364kJ/mol,energi ikatn C-H =414 kJ/mol dan energi ikatan H-H=436 kJ/mol adalah …kJ/mol</p>", "opts": ["+ 77", "-77", "+315", "+513", "+665"]}, {"n": 8, "stem": "<p>Reaksi CO(g) + 1/2O<sub>2</sub>(g)↔CO<sub>2</sub>(g) memiliki ∆H=-283 kJ. Nilai ∆H tersebut merupakan:</p><ol class=\"st\"><li>Entalpi pembakaran CO<sub>2</sub></li><li>Entalpi penguraian CO</li><li>Entalpi penguraian CO<sub>2</sub></li><li>Entalpi pembakaran CO</li></ol><p>Pernyataan tersebut yang benar adalah ….</p>", "opts": ["1,2 dan 3", "1 dan 3", "2 dan 4", "4", "Semuanya"]}, {"n": 9, "stem": "<p>Berikut persamaan thermokimia</p><p>2H<sub>2</sub>(g) + O<sub>2</sub>(g) → 2H<sub>2</sub>O(l) ∆H=-571 kJ</p><p>2Ca(s) + O<sub>2</sub>(g)→2CaO(s) ∆H=-1.269 kJ</p><p>CaO(s) + H<sub>2</sub>O(l)→Ca(OH)<sub>2</sub>(s) ∆H=-64 kJ</p><p>Entalpi pembentukan Ca(OH)<sub>2</sub> adalah…kJ/mol</p>", "opts": ["-984", "+984", "-884", "+856", "+1.884"]}, {"n": 10, "stem": "<p>Tabel data reaksi thermokimia adalah sebagai berikut:</p><p>2NO(g) + Br<sub>2</sub>(g) ↔2NOBr(g)</p><table class=\"tb\"><tr><th>[NO ]mol/L</th><th>[Br<sub>2</sub>]mol/L</th><th>Laju reaksi (mol/L.detik)</th></tr><tr><td>0,1</td><td>0,1</td><td>6</td></tr><tr><td>0,1</td><td>0,2</td><td>12</td></tr><tr><td>0,1</td><td>0,3</td><td>18</td></tr><tr><td>0,2</td><td>0,1</td><td>24</td></tr><tr><td>0,3</td><td>0,1</td><td>54</td></tr></table><p>Rumus laju reaksinya adalah…</p>", "opts": ["v=k[NO][Br<sub>2</sub>]", "v=k[NO]<sup>2</sup>[Br<sub>2</sub>]", "v=k[NO][Br<sub>2</sub>]<sup>2</sup>", "v=k[NO]<sup>2</sup>[Br<sub>2</sub>]<sup>2</sup>", "v=k[NO]<sup>2</sup>"]}, {"n": 11, "stem": "<p>Kenaikan suhu akan mempercepat laju reaksi karena akan…</p>", "opts": ["Menaikan energi aktivasi zat yang bereaksi", "Memperbesar tekanan", "Memperbesar luas permukaan", "Memperbesar energi kinetik molekul pereaksi", "Memperbesar molekul pereaksi"]}, {"n": 12, "stem": "<p>Diketahui kondisi zat yang bereaksi :</p><table class=\"tb\"><tr><th>No</th><th>Zn</th><th>Larutan HCl</th></tr><tr><td>1</td><td>Serbuk</td><td>0,1 M</td></tr><tr><td>2</td><td>Lempeng</td><td>0,1 M</td></tr><tr><td>3</td><td>Serbuk</td><td>0,5 M</td></tr><tr><td>4</td><td>Butiran</td><td>0,5 M</td></tr><tr><td>5</td><td>Lempeng</td><td>0,5 M</td></tr></table><p>Reaksi yang paling cepat adalah…</p>", "opts": ["1", "2", "3", "4", "5"]}, {"n": 13, "stem": "<p>Dari data untuk reaksi 2A + 2B→C+2D</p><table class=\"tb\"><tr><th>[A]mol/L</th><th>[B]mol/L</th><th>V m/s</th></tr><tr><td>P</td><td>q</td><td>s</td></tr><tr><td>2p</td><td>q</td><td>4s</td></tr><tr><td>3p</td><td>2q</td><td>18s</td></tr></table><p>Persamaan laju reaksinya adalah….</p>", "opts": ["v=k[A][B]", "v=k[A]<sup>2</sup>[B]", "v=k[A] [B]<sup>2</sup>", "v=k[A]<sup>2</sup>[B]<sup>2</sup>", "v=k[A] [B]<sup>1/2</sup>"]}, {"n": 14, "stem": "<p>Energi pengaktifan suatu reaksi dapat diperkecil dengan cara…</p>", "opts": ["Menaikan suhu", "Memperbesar tekanan", "Menurunkan suhu", "Menambah katalis", "Mengeluarkan hasil reaksi"]}, {"n": 15, "stem": "<p>Pada penentuan laju reaksi A+ B →C+ D diperoleh data sebagai berikut :</p><table class=\"tb\"><tr><th>No</th><th>[A]</th><th>[B]</th><th>Laju reaksi (M/detik)</th></tr><tr><td>1</td><td>0,01</td><td>0,20</td><td>0,02</td></tr><tr><td>2</td><td>0,02</td><td>0,20</td><td>0,08</td></tr><tr><td>3</td><td>0,03</td><td>0,20</td><td>0,18</td></tr><tr><td>4</td><td>0,03</td><td>0,40</td><td>0,36</td></tr><tr><td>5</td><td>0,03</td><td>0,60</td><td>0,54</td></tr></table><p>Dari data hasil percobaan tersebut diperoleh tetapan laju reaksi k sebesar ….</p>", "opts": ["0,001 M<sup>-2</sup>det<sup>-1</sup>", "0,02 M<sup>-2</sup>det<sup>-1</sup>", "10 M<sup>-2</sup>det<sup>-1</sup>", "50 M<sup>-2</sup>det<sup>-1</sup>", "1000 M<sup>-2</sup>det<sup>-1</sup>"]}, {"n": 16, "stem": "<p>Suatu katalis memperbesar laju reaksi dengan cara memperbesar …</p>", "opts": ["Jumlah molekul yang memiliki energi diatas energi aktivasi", "Jumlah tumbukan molekul", "Energi aktivasi", "Perubahan entalpi", "Energi kinetik molekul"]}, {"n": 17, "stem": "<p>Faktor-faktor berikut dapat mempengaruhi laju reaksi ,kecuali:</p>", "opts": ["Warna", "Suhu", "Ukuran partikel zat", "Konsentrasi", "Katalis"]}, {"n": 18, "stem": "<p>Laju reaksi 2P + Q →R + 3S pada setiap saat dinyatakan sebagai …</p>", "opts": ["Penambahan konsentrasi P tiap satuan waktu", "Pengurangan konsentrasi P tiap satuan waktu", "Pengurangan konsentrasi R tiap satuan waktu", "Pengurangan konsentrasi P dan Q tiap satuan waktu", "Pengurangan konsentrasi Q dan R tiap satuan waktu"]}, {"n": 19, "stem": "<p>Dalam bejana 1 liter dicampurkan 1 mol gas A dan 1 mol gas B hingga terjadi reaksi kesetimbangan ….</p><p>A(g) + B(g) ↔C(g) + D(g)</p><p>Setelah tercapai kesetimbangan , terdapat 0,2 mol gas B. Harga tetapan kesetimbangan Kc adalah….</p>", "opts": ["16", "8", "4", "1/4", "1/8"]}, {"n": 20, "stem": "<p>Suatu kesetimbangan dikatakan dinamis ,apabila dalam kesetimbangan ….</p>", "opts": ["Reaksi kekanan dan kiri telah terhenti", "Secara makroskopis reaksi berlangsung terus menerus", "Laju reaksi kekanan lebih cepat dari laju reaksi kekiri", "Secara mikroskopis reaksi tetap berlangung dua arah", "Jumlah mol zat pereaksi selalu sama dengan jumlah mol hasil reaksi"]}, {"n": 21, "stem": "<p>Diketahui harga tetapan kesetimbangan Kc untuk reaksi kesetimbangan :</p><p>A(g) + B(g) ↔C(g) adalah 0,5</p><p>Berapa jumlah mol gas A harus dicampurkan dengan 4 mol gas B agar menghasilkan 2 mol gas C ?</p>", "opts": ["1", "2", "3", "4", "5"]}, {"n": 22, "stem": "<p>Jika pada reaksi : PCl<sub>5</sub>(g) ↔PCl<sub>3</sub>(g) + Cl<sub>2</sub>(g)</p><p>Terdapat 0,05 mol gas PCl<sub>5</sub> diawal dan 0,02 mol gas PCl<sub>3</sub> pada saat setimbang maka derajat disosiasi (α) PCl<sub>5</sub> adalah….</p>", "opts": ["3/7", "3/5", "2/7", "2/3", "2/5"]}, {"n": 23, "stem": "<p>Reaksi kesetimbangan :</p><p>NO<sub>2</sub>(g) + O<sub>2</sub>(g) ↔N<sub>2</sub>O<sub>5</sub>(g) adalah reaksi endoterm . Jumlah mol N<sub>2</sub>O<sub>5</sub> akan berkurang apabila..</p>", "opts": ["Suhu dinaikan", "Tekanan diperbesar", "Ditambah gas O<sub>2</sub>", "Volume diperbesar", "Ditambah katalis"]}, {"n": 24, "stem": "<p>Jika COCl<sub>2</sub> 0,5 M dipanaskan pada suhu 450 °C ,zat itu akan terurai menurut reaksi</p><p>COCl<sub>2</sub>(g) ↔CO(g) + Cl<sub>2</sub>(g) dan pada kesetimbangan tinggal 0,1 M . Harga Kc adalah …..</p>", "opts": ["1,0", "1,6", "2,0", "2,6", "3,0"]}, {"n": 25, "stem": "<p>Pada reaksi kesetimbangan 2HI(g) ↔H<sub>2</sub>(g) + I<sub>2</sub>(g), 0,1 mol HI dipanaskan sehingga terbentuk 0,02 mol I<sub>2</sub>. Derajat disosiasi HI adalah…</p>", "opts": ["0,2", "0,3", "0,4", "0,5", "0,6"]}, {"n": 26, "stem": "<p>Dalam ruangan 1 liter terdapat kesetimbangan antara gas N<sub>2</sub><sub>,</sub>H<sub>2</sub> dan NH<sub>3</sub> dengan persamaan reaksi : 2NH<sub>3</sub> (g) ↔ N<sub>2</sub><sub>(g)</sub>+ 3 H<sub>2</sub><sub>(g)</sub></p><p>Pada kesetimbangan terdapat 0,01 mol N<sub>2</sub><sub>dan</sub>0,01 mol H<sub>2</sub> dan 0,05 mol NH<sub>3</sub><sub>.</sub>Harga tetapan kesetimbangan reaksi adalah …</p>", "opts": ["2 x 10<sup>-8</sup>", "5x10<sup>-5</sup>", "5x10<sup>-10</sup>", "4x10<sup>-6</sup>", "2x10<sup>-10</sup>"]}, {"n": 27, "stem": "<p>Tetapan kesetimbangan reaksi , 2BaO<sub>2</sub>(s) ↔2BaO(s) + O<sub>2</sub>(g) , diberikan oleh ….</p>", "opts": ["k=<span class=\"fr\"><span>[BaO<sub>2</sub>]<sup>2</sup></span><span>[BaO]<sup>2</sup></span></span>", "k=<span class=\"fr\"><span>[BaO]<sup>2</sup></span><span>[BaO]<sup>2</sup>[O<sub>2</sub>]</span></span>", "k=<span class=\"fr\"><span>[BaO]<sup>2</sup></span><span>[BaO]<sup>2</sup></span></span>", "k=<span class=\"fr\"><span>[BaO]<sup>2</sup>O<sub>2</sub></span><span>[BaO]<sup>2</sup></span></span>", "k =[O<sub>2</sub>]"]}, {"n": 28, "stem": "<p>Reaksi pembentukan metana :</p><p>C(s) + 2H<sub>2</sub>(g) ↔CH<sub>4</sub>(g) ∆H=-18 kkal</p><p>Hasil metana akan bertambah apabila</p><ol class=\"st\"><li>Suhu diturunkan</li><li>Suhu dinaikan</li><li>Tekanan diperkecil</li><li>Tekanan dinaikan</li></ol><p>Pernyataan yang benar adalah…</p>", "opts": ["1,2, dan 3", "1 dan 3", "2 dan 4", "1 dan 4", "Semuanya"]}, {"n": 29, "stem": "<p>Diketahui data kesetimbangan reaksi berikut</p><p>X + 2YZ↔XZ<sub>2</sub> +2Y Kc=4,0</p><p>Y + XZ<sub>2</sub> ↔YZ + XZ Kc=0,5</p><p>Harga Kc untuk reaksi X + XZ<sub>2</sub>↔2XZ adalah….</p>", "opts": ["40", "8", "4", "2", "1"]}, {"n": 30, "stem": "<p>Untuk kesetimbangan A + B ↔C , apabila diketahui tekanan parsial P<sub>A</sub>= 0,1 , P<sub>B</sub>=0,2 dan Pc=0,3 , maka berapakah harga Kp?</p>", "opts": ["12", "15", "16", "18", "20"]}], "es": [{"n": 1, "html": "<p>Diketahui energi ikatan rata-rata dalam kJ/mol</p><p>C=C ; 615</p><p>C-C ;348</p><p>C-H;413</p><p>O-H; 463</p><p>C-O; 351</p><p>Hitunglah perubahan entalpi untuk reaksi berikut!</p><p>CH<sub>2</sub>=CH<sub>2</sub> + H<sub>2</sub>O → CH<sub>3</sub>- CH<sub>2</sub>– OH</p>"}, {"n": 2, "html": "<p>Diketahui data reaksi : 2A + B<sub>2</sub>→ 2AB , Data eksperimen untuk reaksi tersebut adalah sebagai berikut:</p><table class=\"tb\"><tr><th>Percobaan</th><th>[A]</th><th>[B]</th><th>V ( mol L<sup>-1</sup>det-<sup>1</sup>)</th></tr><tr><td>1</td><td>0,1</td><td>0,1</td><td>1/80</td></tr><tr><td>2</td><td>0,2</td><td>0,1</td><td>1/40</td></tr><tr><td>3</td><td>0,2</td><td>0,2</td><td>1/10</td></tr></table><p>Tentukan :</p><ol class=\"sb\"><li>Orde reaksi masing -masing</li><li>Persamaan laju reaksinya</li><li>Nilai tetapan laju reaksinya</li></ol>"}, {"n": 3, "html": "<p>Tuliskan persamaan reaksi kesetimbangan untuk reaksi berikut!</p><ol class=\"sb\"><li>2NO(g) + O<sub>2</sub>(g) → 2NO(g)</li><li>Cu(s) + 2Ag<sup>+</sup> <sub>(</sub><sub>Aq</sub><sub>)</sub>→ Cu<sup>2+</sup>(Aq) + 2Ag(s)</li></ol>"}, {"n": 4, "html": "<p>Perhatkaikan reaksi oksidasi gas HCl berikut!</p><p>CO(g) + 2H<sub>2</sub>(g) ↔CH<sub>3</sub>OH(g) ∆H=- x kJ</p><p>Menurut asas Le chatelieur , kearah mana pergeseran kesetimbangan jika :</p><ol class=\"sb\"><li>Tekanan diperbesar (Volume diperkecil)</li><li>Temeperatur dinaikan</li><li>Ditambah gas CO berlebihan</li><li>Ditambah gas H<sub>2</sub> berlebihan</li><li>Ditambah gas CH<sub>3</sub>OH</li></ol>"}, {"n": 5, "html": "<p>Perhatikan persamaan reaksi berikut!</p><p>PCl<sub>5</sub>(g) ↔ PCl<sub>3</sub> (g) + Cl<sub>2</sub>(g)</p><ol class=\"sb\"><li>Tuliskan rumus persamaan kesetimbangan</li><li>Mula-mula 0,6 mol PCl<sub>5</sub> ditempatkan dalam wadah bervolume 1.0 Liter . saat kesetimbangan terdapat 0,16 mol PCl<sub>3</sub> didalam wadah . Berapa konsentrasi kesetimbangan untuk PCl<sub>5</sub> dan Cl<sub>2</sub></li><li>Berapa harga tetapan kesetimbangan untuk reaksi tersebut!</li></ol>"}]};
+const FLAGS = ["Soal PG 4: opsi C dan E sama-sama \"Tetrahedral\" (duplikat di dokumen). Dipertahankan apa adanya; kunci menerima C atau E.", "Soal PG 5: pada dokumen unsur C tidak tertulis (teks \"11B33D\" tanpa koma dan tanpa C), padahal opsi jawaban memakai C. Dipertahankan apa adanya. Kunci A (3A dan 11B, golongan IA) tidak bergantung pada unsur C, namun mohon periksa soal aslinya.", "Soal PG 6: data dokumen ΔH°f CH4 = 1.660 dan CO2 = 394 (tanpa tanda negatif) dipertahankan. Kunci C (-1.746) mengikuti angka di dokumen.", "Soal PG 18: opsi B dan D sama-sama dapat dibenarkan. Kunci menerima B atau D; ubah di Code.gs bila ingin satu jawaban.", "Soal PG 21: volume wadah tidak disebutkan. Kunci (4) dihitung dengan asumsi volume 1 liter.", "Soal essay 3(a): persamaan \"2NO(g) + O2(g) ↔ 2NO(g)\" memiliki produk sama dengan pereaksi (kemungkinan salah ketik, mungkin 2NO2). Dipertahankan apa adanya.", "Soal essay 4: kalimat pengantar menyebut \"oksidasi gas HCl\" tetapi reaksinya CO + 2H2 ↔ CH3OH. Dipertahankan apa adanya.", "Seluruh kunci jawaban PG di Code.gs adalah DRAF dari penyelesaian soal (dokumen tidak memuat kunci). Wajib dicocokkan dengan kunci resmi guru."];
+const $ = s => document.querySelector(s), LS = window.localStorage, L = 'asas_xi_2026';
+const show = id => ['v-id','v-ex','v-end','v-g'].forEach(v => $('#'+v).classList.toggle('hide', v !== id));
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+async function api(a, d) {
+  if (!APPS_SCRIPT_URL) throw new Error('URL Apps Script belum diatur di file HTML.');
+  const r = await fetch(APPS_SCRIPT_URL, { method: 'POST', body: JSON.stringify(Object.assign({ a }, d)) });
+  return r.json();
+}
+function ban(t) { const b = $('#ban'); b.textContent = t || ''; b.style.display = t ? 'block' : 'none'; }
+function modal(t, b, btns) {
+  $('#ot').textContent = t; $('#ob').innerHTML = b; const a = $('#oa'); a.innerHTML = '';
+  btns.forEach(x => { const e = document.createElement('button'); e.textContent = x[0]; if (x[2]) e.className = x[2]; e.onclick = () => { $('#ov').classList.remove('on'); x[1] && x[1](); }; a.appendChild(e); });
+  $('#ov').classList.add('on');
+}
+
+/* ============ STATE PESERTA ============ */
+let st = null, cur = 0, running = false, timer = null, saveT = null, lastV = 0;
+const N = 35, TOTAL_PG = QD.pg.length;
+const persist = () => { try { LS.setItem(L, JSON.stringify(st)); } catch (e) {} };
+function load() { try { return JSON.parse(LS.getItem(L)); } catch (e) { return null; } }
+
+$('#go').onclick = async () => {
+  const nama = $('#nama').value.trim(), kelas = $('#kelas').value.trim(), absen = $('#absen').value.trim(), kode = $('#kode').value.trim();
+  const er = $('#err'); er.textContent = '';
+  if (nama.length < 3 || !kelas || !(parseInt(absen, 10) > 0) || !kode) { er.textContent = 'Lengkapi nama lengkap, kelas, nomor absen, dan kode akses.'; return; }
+  if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(() => {});
+  $('#go').disabled = true; $('#go').textContent = 'Memeriksa...';
+  try {
+    const r = await api('start', { nama, kelas, absen, kode });
+    const old = load();
+    if (!r.ok) {
+      if (document.fullscreenElement) document.exitFullscreen();
+      if (old && old.fin && !old.done && old.nama.toLowerCase() === nama.toLowerCase() && old.kelas === kelas && String(old.absen) === absen && /sudah pernah/.test(r.msg)) { old.done = true; st = old; persist(); $('#en').textContent = old.nama; $('#ew').textContent = '(tercatat di server)'; show('v-end'); return; }
+      er.textContent = r.msg; return;
+    }
+    const same = old && old.id === r.id && !old.done;
+    st = { id: r.id, nama, kelas, absen, start: r.start, off: r.now - Date.now(), dur: r.dur, max: r.max,
+      ans: same ? old.ans : r.ans, es: same ? old.es : r.es, viol: same ? old.viol : new Array(r.nviol).fill(0).map(() => ({ t: new Date().toISOString(), j: '(tercatat sebelumnya)' })), fin: same ? old.fin : null, done: false };
+    if (same && old.fin) st.fin = old.fin;
+    persist(); begin();
+  } catch (e) { er.textContent = 'Tidak dapat terhubung ke server: ' + e.message; }
+  finally { $('#go').disabled = false; $('#go').textContent = 'MULAI UJIAN'; }
+};
+
+function begin() {
+  show('v-ex'); running = true; $('#who').textContent = st.nama + ' · ' + st.kelas + ' / ' + st.absen;
+  buildNav(); go(0); tick(); timer = setInterval(tick, 1000); setInterval(() => running && sync(), 20000);
+  if (st.fin) trySubmit();
+}
+function buildNav() {
+  const n = $('#nav'); n.innerHTML = '';
+  for (let i = 0; i < N; i++) { const b = document.createElement('button'); b.textContent = i + 1; b.onclick = () => go(i); n.appendChild(b); }
+}
+const answered = i => i < TOTAL_PG ? !!st.ans[i + 1] : !!(st.es[i - TOTAL_PG + 1] || '').trim();
+function refresh() {
+  [...$('#nav').children].forEach((b, i) => { b.className = (answered(i) ? 'a ' : '') + (i === cur ? 'c' : ''); });
+  const c = [...Array(N).keys()].filter(answered).length;
+  $('#pb').style.width = (c / N * 100) + '%'; $('#pt').textContent = c + ' dari ' + N + ' soal terjawab';
+}
+function go(i) {
+  cur = Math.max(0, Math.min(N - 1, i)); const q = $('#q');
+  if (cur < TOTAL_PG) {
+    const d = QD.pg[cur];
+    $('#qh').textContent = 'Pilihan Ganda · Soal ' + (cur + 1) + ' dari ' + TOTAL_PG;
+    q.innerHTML = d.stem + d.opts.map((o, k) => { const L = 'ABCDE'[k]; return '<label class="opt' + (st.ans[cur + 1] === L ? ' sel' : '') + '"><input type="radio" name="o" value="' + L + '"' + (st.ans[cur + 1] === L ? ' checked' : '') + '><span><b>' + L + '.</b> ' + o + '</span></label>'; }).join('');
+    q.querySelectorAll('input').forEach(r => r.onchange = () => { st.ans[cur + 1] = r.value; persist(); q.querySelectorAll('.opt').forEach(l => l.classList.toggle('sel', l.querySelector('input').checked)); refresh(); later(); });
+  } else {
+    const k = cur - TOTAL_PG, d = QD.es[k];
+    $('#qh').textContent = 'Essay · Soal ' + (k + 1) + ' dari ' + QD.es.length;
+    q.innerHTML = d.html + '<label for="ta">Jawaban Anda (tuliskan rumus, langkah perhitungan, dan penjelasan)</label><textarea id="ta"></textarea>';
+    const ta = $('#ta'); ta.value = st.es[k + 1] || '';
+    ta.oninput = () => { st.es[k + 1] = ta.value; persist(); refresh(); later(); };
+  }
+  $('#pv').disabled = cur === 0; $('#nx').disabled = cur === N - 1; refresh(); window.scrollTo(0, 0);
+}
+$('#pv').onclick = () => go(cur - 1); $('#nx').onclick = () => go(cur + 1);
+const later = () => { clearTimeout(saveT); saveT = setTimeout(sync, 2500); };
+
+async function sync() {
+  if (!st || st.done) return;
+  try {
+    const r = await api('save', { id: st.id, ans: st.ans, es: st.es, viol: st.viol });
+    if (!r.ok) throw new Error(r.msg); ban('');
+  } catch (e) { ban('⚠ Jawaban belum tersimpan ke server (koneksi bermasalah). Jawaban aman di perangkat ini dan akan dikirim ulang otomatis.'); }
+}
+window.addEventListener('online', () => { if (st && !st.done) st.fin ? trySubmit() : sync(); });
+
+function tick() {
+  const left = st.start + st.dur * 60000 - (Date.now() + st.off), s = Math.max(0, Math.floor(left / 1000));
+  const t = $('#tm'); t.textContent = String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); t.classList.toggle('low', s <= 300);
+  if (left <= 0 && running) finish('waktu');
+}
+$('#fin').onclick = () => {
+  const un = [...Array(N).keys()].filter(i => !answered(i)).length;
+  modal('Akhiri ujian?', 'Ada <b>' + un + '</b> soal belum dijawab. Setelah dikirim, jawaban tidak dapat diubah.', [['Kembali mengerjakan', null, 's'], ['Ya, kirim sekarang', () => finish('manual'), 'd']]);
+};
+async function finish(why) {
+  if (st.fin || st.done) return; running = false; clearInterval(timer);
+  st.fin = { why, t: new Date().toISOString() }; persist();
+  if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+  trySubmit();
+}
+let sending = false;
+async function trySubmit() {
+  if (sending || !st || st.done) return; sending = true; running = false;
+  $('#ov').classList.remove('on');
+  try {
+    const r = await api('submit', { id: st.id, ans: st.ans, es: st.es, viol: st.viol, why: st.fin.why });
+    if (!r.ok) throw new Error(r.msg);
+    st.done = true; persist(); ban('');
+    $('#en').textContent = r.nama || st.nama; $('#ew').textContent = r.waktu || ''; show('v-end');
+  } catch (e) {
+    ban('⚠ Pengiriman gagal. Jangan tutup halaman ini. Mencoba lagi otomatis...'); show('v-ex'); setTimeout(trySubmit, 6000);
+  } finally { sending = false; }
+}
+
+/* ============ ANTI-CURANG ============ */
+function viol(j) {
+  if (!running || !st) return; const n = Date.now(); if (n - lastV < 1500) return; lastV = n;
+  st.viol.push({ t: new Date().toISOString(), j }); persist(); const k = st.viol.length;
+  sync();
+  if (k >= st.max) { modal('Batas pelanggaran tercapai', 'Pelanggaran ke-' + k + ' (' + esc(j) + '). Ujian dikirim otomatis.', [['OK']]); finish('pelanggaran'); return; }
+  modal('⚠ PERINGATAN ' + k + ' dari ' + st.max, 'Terdeteksi: <b>' + esc(j) + '</b>.<br>Sisa kesempatan sebelum ujian dikirim otomatis: <b>' + (st.max - k) + '</b>. Tetap fokus pada halaman ujian dan gunakan layar penuh.',
+    [['Kembali ke layar penuh', () => document.documentElement.requestFullscreen && document.documentElement.requestFullscreen().catch(() => {})]]);
+}
+document.addEventListener('visibilitychange', () => document.hidden && viol('Berpindah tab / meminimalkan jendela'));
+window.addEventListener('blur', () => setTimeout(() => { if (!document.hidden && !document.hasFocus()) viol('Halaman kehilangan fokus'); }, 300));
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && running) viol('Keluar dari mode layar penuh'); });
+document.addEventListener('keydown', e => {
+  if (!running) return; const k = e.key, c = e.ctrlKey || e.metaKey;
+  let j = null;
+  if (k === 'Meta' || k === 'OS') j = 'Tombol Windows/Command';
+  else if (e.altKey && (k === 'Tab' || k === 'Escape')) j = 'Alt+' + k;
+  else if (k === 'F12' || (c && e.shiftKey && 'IJCijc'.includes(k))) j = 'Membuka developer tools';
+  else if (c && 'tnwTNW'.includes(k)) j = 'Ctrl+' + k.toUpperCase() + ' (tab/jendela browser)';
+  else if (c && k === 'Tab') j = 'Ctrl+Tab';
+  else if (c && 'upsUPS'.includes(k)) j = 'Ctrl+' + k.toUpperCase() + ' (lihat sumber/cetak/simpan)';
+  if (j) { e.preventDefault(); viol(j); }
+}, true);
+document.addEventListener('keyup', e => { if (running && e.key === 'PrintScreen') viol('Tombol PrintScreen'); });
+document.addEventListener('contextmenu', e => { if (running) e.preventDefault(); });
+['copy', 'cut'].forEach(ev => document.addEventListener(ev, e => { if (running && e.target.tagName !== 'TEXTAREA') e.preventDefault(); }));
+if (navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) { // hanya menangkap upaya dari halaman ini
+  const o = navigator.mediaDevices.getDisplayMedia.bind(navigator.mediaDevices);
+  navigator.mediaDevices.getDisplayMedia = function () { viol('Upaya berbagi layar'); return o.apply(null, arguments); };
+}
+window.addEventListener('beforeunload', e => { if (running) { e.preventDefault(); e.returnValue = ''; } });
+
+/* ============ PANEL GURU (buka dengan #guru) ============ */
+let G = { pw: '', d: null, tab: 'cfg', sel: null };
+function route() { if (location.hash === '#guru') { show('v-g'); } else if (!running && !(st && st.fin)) show('v-id'); }
+window.addEventListener('hashchange', route);
+async function gcall(a, d) { return api(a, Object.assign({ pw: G.pw }, d)); }
+$('#glogin').onclick = async () => {
+  G.pw = $('#gpw').value; $('#gerr').textContent = '';
+  try { const r = await gcall('g_data', {}); if (!r.ok) { $('#gerr').textContent = r.msg; return; } G.d = r; $('#g-login').classList.add('hide'); $('#g-main').classList.remove('hide'); gui(); }
+  catch (e) { $('#gerr').textContent = e.message; }
+};
+$('#gout').onclick = () => { G = { pw: '', d: null, tab: 'cfg', sel: null }; $('#g-main').classList.add('hide'); $('#g-login').classList.remove('hide'); $('#gpw').value = ''; };
+$('#grefresh').onclick = async () => { const r = await gcall('g_data', {}); if (r.ok) { G.d = r; gui(); } else alert(r.msg); };
+function gui() {
+  $('#gwarn').classList.toggle('hide', !G.d.pwDefault);
+  const T = [['cfg', 'Pengaturan'], ['pes', 'Peserta'], ['es', 'Koreksi Essay'], ['rek', 'Rekapitulasi'], ['log', 'Log Pelanggaran'], ['cat', 'Catatan Soal']];
+  $('#gtabs').innerHTML = ''; T.forEach(t => { const b = document.createElement('button'); b.textContent = t[1]; b.className = G.tab === t[0] ? 'on' : ''; b.onclick = () => { G.tab = t[0]; gui(); }; $('#gtabs').appendChild(b); });
+  $('#gbody').innerHTML = '<div class="card">' + gtab() + '</div>'; gbind();
+}
+const tbl = (h, rows) => '<div class="tw"><table><tr>' + h.map(x => '<th>' + x + '</th>').join('') + '</tr>' + rows.map(r => '<tr>' + r.map(c => '<td>' + esc(c) + '</td>').join('') + '</tr>').join('') + '</table></div>';
+const nv = v => v === '' || v == null ? '-' : v;
+function gtab() {
+  const d = G.d, c = d.cfg;
+  if (G.tab === 'cfg') return '<h2>Pengaturan Ujian</h2><div class="g2"><div><label>Kode akses peserta</label><input id="c-kode" value="' + esc(c.kode) + '"></div>' +
+    '<div><label>Password guru baru (kosongkan jika tidak diganti, min. 8 karakter)</label><input id="c-pw" type="password"></div>' +
+    '<div><label>Durasi ujian (menit)</label><input id="c-dur" type="number" value="' + c.durasi + '"></div><div><label>Batas pelanggaran</label><input id="c-max" type="number" value="' + c.maxViol + '"></div>' +
+    '<div><label>Bobot pilihan ganda (%)</label><input id="c-bpg" type="number" value="' + c.bobotPG + '"></div><div><label>Bobot essay (%)</label><input id="c-bes" type="number" value="' + c.bobotEs + '"></div>' +
+    '<div><label>Dibuka (opsional, waktu WIB)</label><input id="c-ma" type="datetime-local" value="' + esc(c.mulaiAt) + '"></div><div><label>Ditutup (opsional, waktu WIB)</label><input id="c-sa" type="datetime-local" value="' + esc(c.selesaiAt) + '"></div></div>' +
+    '<label><input type="checkbox" id="c-buka" style="width:auto" ' + (c.buka ? 'checked' : '') + '> Akses ujian dibuka</label><br><button id="c-save">Simpan pengaturan</button> <span id="c-msg" class="m"></span>';
+  if (G.tab === 'pes') return '<h2>Daftar Peserta (' + d.rows.length + ')</h2>' + tbl(['Nama', 'Kelas', 'Absen', 'Status', 'Mulai', 'Dikumpulkan', 'Pelanggaran'], d.rows.map(r => [r.nama, r.kelas, r.absen, r.status, r.mulai, r.selesai, r.viol])) +
+    '<p class="m">Reset peserta (untuk gangguan teknis, mengizinkan mengulang):</p><select id="rs"><option value="">- pilih peserta -</option>' + d.rows.map(r => '<option value="' + esc(r.id) + '">' + esc(r.nama + ' (' + r.kelas + '/' + r.absen + ')') + '</option>').join('') + '</select><br><br><button class="d" id="rsb">Reset peserta terpilih</button>';
+  if (G.tab === 'es') {
+    const rs = d.rows.filter(r => r.status !== 'Mengerjakan'); if (!rs.length) return '<h2>Koreksi Essay</h2><p>Belum ada peserta yang mengumpulkan.</p>';
+    const r = rs.find(x => x.id === G.sel) || rs[0]; G.sel = r.id;
+    return '<h2>Koreksi Essay</h2><select id="es-sel">' + rs.map(x => '<option value="' + esc(x.id) + '"' + (x.id === r.id ? ' selected' : '') + '>' + esc(x.nama + ' (' + x.kelas + '/' + x.absen + ') - ' + x.statusEs) + '</option>').join('') + '</select>' +
+      QD.es.map((q, i) => '<div class="gq"><div class="q">' + q.html + '</div><b>Jawaban peserta:</b><div class="ans">' + esc(r.es[i + 1] || '(kosong)') + '</div><div class="g2"><div><label>Nilai (0-100)</label><input class="sc" type="number" min="0" max="100" id="sk' + i + '" value="' + esc(r.skor[i] === undefined ? '' : r.skor[i]) + '"></div><div><label>Catatan guru</label><input id="ct' + i + '" value="' + esc(r.cat[i] || '') + '"></div></div></div>').join('') +
+      '<button id="es-save">Simpan koreksi</button> <span id="es-msg" class="m"></span><p class="m">Nilai Essay = total 5 soal / 500 × 100. Nilai akhir tampil setelah kelima soal diberi nilai.</p>';
+  }
+  if (G.tab === 'rek') return '<h2>Rekapitulasi Nilai</h2><button id="csv">Unduh CSV (bisa dibuka di Excel)</button><br><br>' + tbl(['Nama', 'Kelas', 'Absen', 'Benar', 'Nilai PG', 'Status Essay', 'Nilai Essay', 'Nilai Akhir', 'Status'], d.rows.filter(r => r.pg).map(r => [r.nama, r.kelas, r.absen, r.pg.benar, r.pg.nilai, r.statusEs, nv(r.nilaiEs), r.akhir === '' ? 'BELUM LENGKAP' : r.akhir, r.statusNilai]));
+  if (G.tab === 'log') return '<h2>Log Pelanggaran</h2>' + tbl(['Nama', 'Kelas', 'Jenis', 'Ke-', 'Waktu', 'Tindakan'], d.logs.map(l => [l.nama, l.kelas, l.jenis, l.n, l.waktu, l.aksi]));
+  return '<h2>Catatan Soal yang Perlu Diperiksa Guru</h2><ol>' + FLAGS.map(f => '<li>' + esc(f) + '</li>').join('') + '</ol>';
+}
+function gbind() {
+  const b = id => document.getElementById(id);
+  if (b('c-save')) b('c-save').onclick = async () => {
+    const cfg = { kode: b('c-kode').value, pwBaru: b('c-pw').value, durasi: b('c-dur').value, maxViol: b('c-max').value, bobotPG: b('c-bpg').value, bobotEs: b('c-bes').value, mulaiAt: b('c-ma').value, selesaiAt: b('c-sa').value, buka: b('c-buka').checked };
+    if (cfg.pwBaru && cfg.pwBaru.length < 8) { b('c-msg').textContent = 'Password minimal 8 karakter.'; return; }
+    const r = await gcall('g_cfg', { cfg }); if (!r.ok) { b('c-msg').textContent = r.msg; return; }
+    if (cfg.pwBaru) G.pw = cfg.pwBaru; b('c-msg').textContent = 'Tersimpan.'; const x = await gcall('g_data', {}); if (x.ok) { G.d = x; $('#gwarn').classList.toggle('hide', !x.pwDefault); }
+  };
+  if (b('rsb')) b('rsb').onclick = async () => { const id = b('rs').value; if (!id || !confirm('Reset peserta ini? Jawabannya akan dihapus.')) return; const r = await gcall('g_reset', { id }); if (r.ok) { $('#grefresh').click(); } else alert(r.msg); };
+  if (b('es-sel')) b('es-sel').onchange = () => { G.sel = b('es-sel').value; gui(); };
+  if (b('es-save')) b('es-save').onclick = async () => {
+    const skor = [0, 1, 2, 3, 4].map(i => b('sk' + i).value), cat = [0, 1, 2, 3, 4].map(i => b('ct' + i).value);
+    if (skor.some(v => v !== '' && (isNaN(v) || v < 0 || v > 100))) { b('es-msg').textContent = 'Nilai harus 0-100.'; return; }
+    const r = await gcall('g_grade', { id: G.sel, skor, cat }); if (!r.ok) { b('es-msg').textContent = r.msg; return; }
+    const row = G.d.rows.find(x => x.id === G.sel); Object.assign(row, { skor, cat, nilaiEs: r.nilaiEs, akhir: r.akhir, statusEs: r.statusEs, statusNilai: r.akhir === '' ? 'BELUM LENGKAP' : 'LENGKAP' });
+    b('es-msg').textContent = 'Tersimpan. Nilai essay: ' + nv(r.nilaiEs) + ' · Nilai akhir: ' + (r.akhir === '' ? 'BELUM LENGKAP' : r.akhir);
+  };
+  if (b('csv')) b('csv').onclick = () => {
+    const H = ['Nama', 'Kelas', 'Absen', 'Status Ujian', 'Waktu Mulai', 'Waktu Selesai', 'Pelanggaran', 'Jumlah Benar', 'Nilai PG', 'Status Essay', 'Nilai Essay', 'Nilai Akhir', 'Status Penilaian'];
+    const rows = G.d.rows.map(r => [r.nama, r.kelas, r.absen, r.status, r.mulai, r.selesai, r.viol, r.pg ? r.pg.benar : '', r.pg ? r.pg.nilai : '', r.statusEs, r.nilaiEs, r.akhir === '' ? 'BELUM LENGKAP' : r.akhir, r.statusNilai]);
+    const csv = '\ufeff' + [H].concat(rows).map(r => r.map(v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"').join(',')).join('\r\n');
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' })); a.download = 'rekap_asas_kimia_xi.csv'; a.click();
+  };
+}
+
+/* ============ INISIALISASI ============ */
+(function () {
+  document.querySelectorAll('.maxv').forEach(e => e.textContent = '5');
+  const o = load(); if (o && !o.done) { $('#nama').value = o.nama; $('#kelas').value = o.kelas; $('#absen').value = o.absen; $('#err').textContent = 'Ada ujian yang belum selesai di perangkat ini. Masukkan kode akses lalu tekan MULAI UJIAN untuk melanjutkan.'; $('#err').style.color = 'var(--m)'; }
+  if (o && o.done) { $('#err').textContent = 'Ujian pada perangkat ini sudah dikumpulkan.'; }
+  if (!APPS_SCRIPT_URL) $('#err').textContent = 'PERHATIAN GURU: APPS_SCRIPT_URL belum diisi pada file HTML.';
+  route();
+})();
+</script></body></html>
